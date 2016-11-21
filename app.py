@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def verify():
+    log("start verify..................................................................................")
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -24,7 +25,10 @@ def verify():
 def webhook():
 
     # endpoint for processing incoming messaging events
-    log("Webhook start.............")
+    log("Webhook start.............********************************************************************")
+    
+    
+    
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
@@ -54,7 +58,15 @@ def webhook():
                     pass
 
     return "ok", 200
+def testRestCall():
+    log("start testRestCall...............")
+    url = 'https://72.55.146.142:9091/chatbot/rest/Bot/askQuestion?question=hi'
+    data = '{}'
 
+    robResponse = requests.get(url, params=params, data=data)
+    if robResponse.status_code != 200:
+        log(robResponse.status_code)
+        log(robResponse.text)
 
 def send_message(recipient_id, message_text):
     log("start send message.....")
