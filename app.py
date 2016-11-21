@@ -33,6 +33,8 @@ def webhook():
     log("start testRestCall...............")
     robResponse = requests.get("http://72.55.146.142:9091/chatbot/rest/Bot/askQuestion?question=hi")
     log(robResponse) 
+    log(robResponse.status_code)
+    log(robResponse.text)
     log("after test call.....")
       
     data = request.get_json()
