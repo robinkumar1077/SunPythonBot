@@ -24,7 +24,7 @@ def verify():
 def webhook():
 
     # endpoint for processing incoming messaging events
-
+    log("Webhook start.............")
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
@@ -38,6 +38,7 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
+                    log("Myt 3 logs..................")
                     log(sender_id)
                     log(recipient_id)
                     log(message_text)
@@ -56,7 +57,7 @@ def webhook():
 
 
 def send_message(recipient_id, message_text):
-
+    log(start send message.....)
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
