@@ -60,11 +60,11 @@ def webhook():
                     pass
 
     return "ok", 200
+
 def testRestCall():
     log("start testRestCall...............")
     url = 'https://72.55.146.142:9091/chatbot/rest/Bot/askQuestion?question=hi'
     data = '{}'
-
     robResponse = requests.get(url,data=data)
     if robResponse.status_code != 200:
         log(robResponse.status_code)
