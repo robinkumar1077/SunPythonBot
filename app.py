@@ -65,7 +65,7 @@ def testRestCall():
     url = 'https://72.55.146.142:9091/chatbot/rest/Bot/askQuestion?question=hi'
     data = '{}'
 
-    robResponse = requests.get(url, params=params, data=data)
+    robResponse = requests.get(url,data=data)
     if robResponse.status_code != 200:
         log(robResponse.status_code)
         log(robResponse.text)
