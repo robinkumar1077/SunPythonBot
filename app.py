@@ -31,7 +31,10 @@ def webhook():
     log("***********************************************************************")
     log("Webhook start.............********************************************************************")
     
-    testRestCall()
+        log("start testRestCall...............")
+    data = '{}'
+    robResponse = requests.get("https://72.55.146.142:9091/chatbot/rest/Bot/askQuestion?question=hi",data=data)
+    log(robResponse) 
     
     log("after test call.....")
     
@@ -65,16 +68,6 @@ def webhook():
 
     return "ok", 200
 
-def testRestCall():
-    log("start testRestCall...............")
-    url = 'https://72.55.146.142:9091/chatbot/rest/Bot/askQuestion?question=hi'
-    data = '{}'
-    robResponse = requests.get(url,data=data)
-    log(robResponse)
-     log(robResponse.status_code)
-    if robResponse.status_code != 200:
-        log(robResponse.status_code)
-        log(robResponse.text)
 
 def send_message(recipient_id, message_text):
     log("start send message.....")
