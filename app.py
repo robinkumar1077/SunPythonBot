@@ -29,7 +29,7 @@ def webhook():
     log("***********************************************************************")
     log("***********************************************************************")
     log("***********************************************************************")
-    log("Webhook start.............********************************************************************")
+    log("Webhook start,,,,newwww.............********************************************************************")
       
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -49,7 +49,7 @@ def webhook():
                     log(recipient_id)
                     log(message_text)
                     
-                    log("start testRestCall...............")
+                    log("start testRestCall...............new....")
                     robResponse = requests.get("http://72.55.146.142:9091/chatbot/rest/Chatbot/getResponse?request="+message_text)
                     log(robResponse) 
                     log(robResponse.status_code)
